@@ -1,45 +1,45 @@
 {
-	"name": "add-module-exports-webpack-plugin",
-	"version": "0.0.0",
-	"description": "Add `module.exports` for Babel and TypeScript compiled code",
-	"license": "MIT",
-	"repository": "sindresorhus/add-module-exports-webpack-plugin",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
-	},
-	"engines": {
-		"node": ">=6"
-	},
-	"scripts": {
-		"test": "xo && ava"
-	},
-	"files": [
-		"index.js"
-	],
-	"keywords": [
-		"webpack-plugin",
-		"webpack",
-		"add",
-		"generate",
-		"create",
-		"make",
-		"module",
-		"exports",
-		"commonjs",
-		"cjs",
-		"babel",
-		"typescript"
-	],
-	"dependencies": {
-		"webpack-sources": "^1.1.0"
-	},
-	"devDependencies": {
-		"ava": "*",
-		"pify": "^3.0.0",
-		"tempy": "^0.2.1",
-		"webpack": "^3.10.0",
-		"xo": "*"
-	}
+  "name": "add-module-exports-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Add `module.exports` for Babel and TypeScript compiled code",
+  "license": "MIT",
+  "repository": "sindresorhus/add-module-exports-webpack-plugin",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "webpack-plugin",
+    "webpack",
+    "add",
+    "generate",
+    "create",
+    "make",
+    "module",
+    "exports",
+    "commonjs",
+    "cjs",
+    "babel",
+    "typescript"
+  ],
+  "dependencies": {
+    "webpack-sources": "^1.1.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "pify": "^3.0.0",
+    "tempy": "^0.2.1",
+    "webpack": "^3.10.0",
+    "xo": "*"
+  }
 }
