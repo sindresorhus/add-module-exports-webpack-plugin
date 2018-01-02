@@ -34,6 +34,7 @@ module.exports = {
 
 ## Related
 
+- [node-env-webpack-plugin](https://github.com/sindresorhus/node-env-webpack-plugin) - Simplified `NODE_ENV` handling
 - [add-asset-webpack-plugin](https://github.com/sindresorhus/add-asset-webpack-plugin) - Dynamically add an asset to the webpack graph
 
 
