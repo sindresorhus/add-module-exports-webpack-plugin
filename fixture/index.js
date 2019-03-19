@@ -1,1 +1,2 @@
-module.exports.default = '🦄';
+module.exports.default = () => '🦄';
+module.exports.rainbow = '🌈';

@@ -31,6 +31,25 @@ module.exports = {
 
 **`output.libraryTarget` must be `commonjs2`**
 
+### Primitive default exports
+
+When exporting a primitive value as default export, other exported values will not be exported anymore. The reason is that this module redeclares the exports as follows.
+
+```js
+module.exports.default = (arg1, arg2) => arg1 + arg2;
+module.exports.subtract = (arg1, arg2) => arg1 - arg2;
+```
+
+This module re-exports them as follows.
+
+```js
+module.exports = (arg1, arg2) => arg1 + arg2;
+module.exports.default = (arg1, arg2) => arg1 + arg2;
+module.exports.subtract = (arg1, arg2) => arg1 - arg2;
+```
+
+Because you can't attach properties to a primitive value, it's not possible to re-export the other properties and so you would end up with only a `module.exports`.
+
 
 ## Related
 

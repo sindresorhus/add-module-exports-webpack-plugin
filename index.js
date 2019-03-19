@@ -4,9 +4,9 @@ const {ConcatSource} = require('webpack-sources');
 module.exports = class AddModuleExportsPlugin {
 	_add(compilation, filename) {
 		const source = `
-const __export__ = module.exports.default;
-module.exports = __export__;
-module.exports.default = __export__;`;
+const __export__ = module.exports;
+module.exports = __export__.default;
+Object.assign(module.exports, __export__);`;
 
 		compilation.assets[filename] = new ConcatSource(compilation.assets[filename], source);
 	}
