@@ -11,27 +11,43 @@ Object.assign(module.exports, __export__);`;
 		compilation.assets[filename] = new ConcatSource(compilation.assets[filename], source);
 	}
 
-	apply(compiler) {
-		compiler.plugin('compilation', compilation => {
-			const options = compilation.outputOptions;
+	_handleOptimizeChunkAssets(chunks, cb, compilation) {
+		const options = compilation.outputOptions;
 
-			if (options.libraryTarget !== 'commonjs2') {
-				compilation.errors.push(new Error('AddModuleExportsPlugin: output.libraryTarget must be `commonjs2`'));
-				return;
-			}
-
-			compilation.plugin('optimize-chunk-assets', (chunks, cb) => {
-				for (const chunk of chunks) {
-					for (const filename of chunk.files) {
-						if (filename === options.filename) {
-							this._add(compilation, filename);
-							break;
-						}
-					}
+		for (const chunk of chunks) {
+			for (const filename of chunk.files) {
+				if (filename === options.filename) {
+					this._add(compilation, filename);
+					break;
 				}
+			}
+		}
 
-				cb();
-			});
-		});
+		cb();
+	}
+
+	_handleCompilation(compilation) {
+		const options = compilation.outputOptions;
+
+		if (options.libraryTarget !== 'commonjs2') {
+			compilation.errors.push(new Error('AddModuleExportsPlugin: output.libraryTarget must be `commonjs2`'));
+			return;
+		}
+
+		if (compilation.hooks) {
+			compilation.hooks.optimizeChunkAssets.tapAsync('AddModuleExportsPlugin',
+				(chunks, cb) => this._handleOptimizeChunkAssets(chunks, cb, compilation));
+		} else {
+			compilation.plugin('optimize-chunk-assets',
+				(chunks, cb) => this._handleOptimizeChunkAssets(chunks, cb, compilation));
+		}
+	}
+
+	apply(compiler) {
+		if (compiler.hooks) {
+			compiler.hooks.compilation.tap('AddModuleExportsPlugin', this._handleCompilation.bind(this));
+		} else {
+			compiler.plugin('compilation', this._handleCompilation.bind(this));
+		}
 	}
 };
