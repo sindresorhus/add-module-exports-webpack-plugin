@@ -10,7 +10,7 @@
 		"url": "sindresorhus.com"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -36,10 +36,10 @@
 		"webpack-sources": "^1.3.0"
 	},
 	"devDependencies": {
-		"ava": "^1.3.1",
+		"ava": "^1.4.1",
 		"pify": "^4.0.1",
-		"tempy": "^0.2.1",
-		"webpack": "^4.29.6",
+		"tempy": "^0.3.0",
+		"webpack": "^4.30.0",
 		"xo": "^0.24.0"
 	},
 	"peerDependencies": {

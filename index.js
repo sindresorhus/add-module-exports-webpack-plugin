@@ -20,7 +20,7 @@ Object.assign(module.exports, __export__);`;
 				return;
 			}
 
-			compilation.hooks.optimizeChunkAssets.tapAsync('AddModuleExportsPlugin', (chunks, cb) => {
+			compilation.hooks.optimizeChunkAssets.tap('AddModuleExportsPlugin', chunks => {
 				for (const chunk of chunks) {
 					for (const filename of chunk.files) {
 						if (filename === options.filename) {
@@ -29,8 +29,6 @@ Object.assign(module.exports, __export__);`;
 						}
 					}
 				}
-
-				cb();
 			});
 		});
 	}
