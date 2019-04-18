@@ -12,7 +12,7 @@ Object.assign(module.exports, __export__);`;
 	}
 
 	apply(compiler) {
-		compiler.plugin('compilation', compilation => {
+		compiler.hooks.compilation.tap('AddModuleExportsPlugin', compilation => {
 			const options = compilation.outputOptions;
 
 			if (options.libraryTarget !== 'commonjs2') {
@@ -20,7 +20,7 @@ Object.assign(module.exports, __export__);`;
 				return;
 			}
 
-			compilation.plugin('optimize-chunk-assets', (chunks, cb) => {
+			compilation.hooks.optimizeChunkAssets.tapAsync('AddModuleExportsPlugin', (chunks, cb) => {
 				for (const chunk of chunks) {
 					for (const filename of chunk.files) {
 						if (filename === options.filename) {
