@@ -3,8 +3,10 @@ const {ConcatSource} = require('webpack-sources');
 
 module.exports = class AddModuleExportsPlugin {
 	_add(compilation, filename) {
+		const options = compilation.outputOptions;
+		const es2015 = options.preset && options.preset === 'es2015';
 		const source = `
-const __export__ = module.exports;
+${es2015 ? 'var' : 'const'} __export__ = module.exports;
 module.exports = __export__.default;
 Object.assign(module.exports, __export__);`;
 
