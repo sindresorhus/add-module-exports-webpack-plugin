@@ -37,7 +37,8 @@
 		"webpack-sources": "^2.0.1"
 	},
 	"devDependencies": {
-		"ava": "^2.4.0",
+		"ava": "^3.13.0",
+		"esm": "^3.2.25",
 		"pify": "^5.0.0",
 		"tempy": "^1.0.0",
 		"webpack": "^5.1.0",
@@ -45,5 +46,10 @@
 	},
 	"peerDependencies": {
 		"webpack": ">=5"
+	},
+  	"ava": {
+	  "require": [
+		"esm"
+	  ]
 	}
 }
