@@ -39,7 +39,7 @@
 		"ava": "^1.4.1",
 		"pify": "^4.0.1",
 		"tempy": "^0.3.0",
-		"webpack": "^4.30.0",
+		"webpack": "^5.1.0",
 		"xo": "^0.24.0"
 	},
 	"peerDependencies": {
