@@ -1,6 +1,6 @@
 {
 	"name": "add-module-exports-webpack-plugin",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Add `module.exports` for Babel and TypeScript compiled code",
 	"license": "MIT",
 	"repository": "sindresorhus/add-module-exports-webpack-plugin",
