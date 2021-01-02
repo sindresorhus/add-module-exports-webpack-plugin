@@ -1,4 +1,4 @@
-# add-module-exports-webpack-plugin [![Build Status](https://travis-ci.com/sindresorhus/add-module-exports-webpack-plugin.svg?branch=master)](https://travis-ci.com/github/sindresorhus/add-module-exports-webpack-plugin)
+# add-module-exports-webpack-plugin
 
 > Add `module.exports` for Babel and TypeScript compiled code
 
