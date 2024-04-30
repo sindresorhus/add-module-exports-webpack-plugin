@@ -1,3 +1,6 @@
+> [!WARNING]
+> Deprecated. Prefer using JavaScript Modules instead of CommonJS.
+
 # add-module-exports-webpack-plugin
 
 > Add `module.exports` for Babel and TypeScript compiled code
